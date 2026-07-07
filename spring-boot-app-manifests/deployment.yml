@@ -20,7 +20,7 @@ spec:
     spec:
       containers:
         - name: spring-boot-app
-          image: rishikantkumar/ultimate-cicd:7
+          image: rishikantkumar/ultimate-cicd:9
           imagePullPolicy: Always
           ports:
             - containerPort: 8080
