@@ -20,7 +20,7 @@ This project implements a complete CI/CD and GitOps workflow that automatically:
 
 # 🏗️ Architecture
 
-![Architecture](architecture.png)
+![Architecture](architecture.png.png)
 
 ---
 
@@ -125,10 +125,9 @@ java-maven-sonar-argocd-helm-k8s/
 
 # 📷 Project Screenshots
 
-- Jenkins Pipeline
-- SonarQube Analysis
+- Jenkins.png.png
+- sonarqube.png.png
 - Argo CD Dashboard
-- Kubernetes Pods
 - Running Application
 
 ---
