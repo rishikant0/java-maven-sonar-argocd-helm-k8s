@@ -1,32 +1,43 @@
 # 🚀 End-to-End CI/CD & GitOps Pipeline for Spring Boot Application
 
-An end-to-end DevOps project demonstrating how to automate the complete software delivery lifecycle of a Java Spring Boot application using Jenkins, SonarQube, Docker, Kubernetes, and Argo CD on AWS EC2.
+<p align="center">
+
+![Java](https://img.shields.io/badge/Java-17-orange?style=for-the-badge)
+![Spring Boot](https://img.shields.io/badge/SpringBoot-3.x-green?style=for-the-badge)
+![Jenkins](https://img.shields.io/badge/Jenkins-CI-red?style=for-the-badge)
+![Docker](https://img.shields.io/badge/Docker-Container-blue?style=for-the-badge)
+![Kubernetes](https://img.shields.io/badge/Kubernetes-Orchestration-326CE5?style=for-the-badge)
+![ArgoCD](https://img.shields.io/badge/ArgoCD-GitOps-orange?style=for-the-badge)
+![AWS](https://img.shields.io/badge/AWS-EC2-yellow?style=for-the-badge)
+
+</p>
 
 ---
 
-## 📌 Project Overview
+# 📌 Project Overview
 
-This project implements a complete CI/CD and GitOps workflow that automatically:
+This project demonstrates a complete **Enterprise CI/CD & GitOps workflow** for deploying a Java Spring Boot application.
 
-- Builds a Spring Boot application
-- Runs Maven build and unit tests
-- Performs code quality analysis using SonarQube
-- Builds and pushes Docker images
-- Updates Kubernetes manifests automatically
-- Commits deployment changes to GitHub
-- Uses Argo CD to synchronize Kubernetes deployments automatically
+Instead of deploying manually, the entire software delivery process is fully automated.
+
+### The pipeline performs
+
+- Source Code Checkout
+- Maven Build
+- Unit Testing
+- SonarQube Code Analysis
+- Docker Image Build
+- Push Image to Docker Hub
+- Update Kubernetes Manifest
+- Push Manifest to GitHub
+- Argo CD Auto Sync
+- Deploy to Kubernetes Cluster
 
 ---
 
-# 🏗️ Architecture
+# 🔄 Complete Workflow
 
-![Architecture](architecture.png.png)
-
----
-
-# 🔄 CI/CD Workflow
-
-```text
+```
 Developer
     │
     ▼
@@ -35,115 +46,175 @@ GitHub Repository
     ▼
 Jenkins Pipeline
     │
-    ├── Checkout Source Code
-    ├── Maven Build & Unit Tests
-    ├── SonarQube Analysis
-    ├── Docker Image Build
-    ├── Push Image to Docker Hub
-    ├── Update Kubernetes Manifest
-    └── Commit Updated Manifest to GitHub
+    ├── Maven Build
+    ├── Unit Testing
+    ├── SonarQube Scan
+    ├── Docker Build
+    ├── Push Docker Image
+    ├── Update deployment.yml
+    └── Push Manifest to GitHub
                      │
                      ▼
-              Argo CD Auto Sync
+               Argo CD (GitOps)
                      │
                      ▼
-              Kubernetes Cluster
+             Kubernetes Cluster
                      │
                      ▼
-              Spring Boot Application
+             Spring Boot Application
 ```
 
 ---
 
-# 🛠️ Tech Stack
+# 🏗 Architecture
 
-| Technology | Purpose |
-|------------|----------|
-| Java 17 | Backend Development |
-| Spring Boot | Web Application |
-| Maven | Build Tool |
-| Git & GitHub | Source Control |
-| Jenkins | Continuous Integration |
-| SonarQube | Code Quality Analysis |
-| Docker | Containerization |
-| Docker Hub | Image Registry |
-| Kubernetes (Kind) | Container Orchestration |
-| Argo CD | GitOps Continuous Deployment |
-| AWS EC2 | Cloud Infrastructure |
+<p align="center">
+<img src="Architecture.png.png" width="100%">
+</p>
 
 ---
 
-# ⚙️ Jenkins Pipeline Stages
+# ⚙ Jenkins Pipeline
 
-- ✅ Checkout Source Code
-- ✅ Validate Project
-- ✅ Maven Build & Unit Test
-- ✅ SonarQube Analysis
-- ✅ Build Docker Image
-- ✅ Push Docker Image
-- ✅ Update Kubernetes Manifest
-- ✅ Commit Manifest to GitHub
-- ✅ Argo CD Auto Deployment
+<p align="center">
+<img src="jenkins.png.png" width="100%">
+</p>
+
+### Pipeline Stages
+
+- Checkout Source Code
+- Validate Project
+- Maven Build
+- Unit Testing
+- SonarQube Analysis
+- Docker Image Build
+- Docker Push
+- Update Kubernetes Manifest
+- Commit Manifest
+- GitOps Deployment
+
+---
+
+# 🔍 SonarQube Analysis
+
+<p align="center">
+<img src="sonarqube.png.png" width="100%">
+</p>
+
+### Quality Checks
+
+- Code Smells
+- Bugs
+- Vulnerabilities
+- Maintainability
+- Quality Gate
+
+---
+
+# 🚀 Argo CD Deployment
+
+<p align="center">
+<img src="argocd.png.png" width="100%">
+</p>
+
+### GitOps Features
+
+- Auto Sync
+- Self Heal
+- Prune
+- Continuous Deployment
+- Desired State Reconciliation
+
+---
+
+# 🌐 Application
+
+<p align="center">
+<img src="application.png.png" width="100%">
+</p>
+
+The Spring Boot application is deployed on Kubernetes and exposed through a Kubernetes Service.
+
+---
+
+# 🛠 Tech Stack
+
+| Category | Technology |
+|-----------|------------|
+| Language | Java 17 |
+| Framework | Spring Boot |
+| Build Tool | Maven |
+| Version Control | Git & GitHub |
+| CI | Jenkins |
+| Code Analysis | SonarQube |
+| Containerization | Docker |
+| Registry | Docker Hub |
+| Orchestration | Kubernetes (Kind) |
+| GitOps | Argo CD |
+| Cloud | AWS EC2 |
 
 ---
 
 # 📂 Project Structure
 
 ```
-java-maven-sonar-argocd-helm-k8s/
+java-maven-sonar-argocd-helm-k8s
 │
 ├── spring-boot-app/
-│   ├── src/
-│   ├── Dockerfile
-│   ├── Jenkinsfile
-│   └── pom.xml
 │
 ├── spring-boot-app-manifests/
-│   ├── deployment.yml
-│   └── service.yml
 │
 ├── Argo CD/
-│   └── argocd-basic.yaml
 │
-└── README.md
+├── README.md
+│
+├── Architecture.png.png
+├── application.png.png
+├── argocd.png.png
+├── jenkins.png.png
+└── sonarqube.png.png
 ```
 
 ---
 
-# 🚀 Features
+# 🚀 How to Run
 
-- End-to-End CI/CD Pipeline
-- GitOps Deployment using Argo CD
-- Automated Docker Image Versioning
-- Static Code Analysis
-- Auto Sync
-- Self Heal
-- Kubernetes Deployment
-- AWS Deployment
+### Clone Repository
+
+```bash
+git clone https://github.com/rishikant0/java-maven-sonar-argocd-helm-k8s.git
+```
+
+### Build Application
+
+```bash
+mvn clean package
+```
+
+### Build Docker Image
+
+```bash
+docker build -t your-image .
+```
+
+### Deploy
+
+```bash
+kubectl apply -f spring-boot-app-manifests/
+```
 
 ---
 
-# 📷 Project Screenshots
+# ✨ Features
 
-- Jenkins.png.png
-- sonarqube.png.png
-- Argo CD Dashboard
-- Running Application
-
----
-
-# 📈 Learning Outcomes
-
-Through this project I gained hands-on experience with:
-
-- CI/CD Pipeline Automation
-- GitOps Workflow
-- Jenkins Pipeline Development
-- Docker Containerization
-- Kubernetes Deployment
-- Argo CD Synchronization
-- AWS EC2 Infrastructure
-- DevOps Best Practices
+- End-to-End CI/CD
+- GitOps Deployment
+- Kubernetes Orchestration
+- Dockerized Application
+- Automatic Image Versioning
+- SonarQube Quality Analysis
+- Auto Deployment with Argo CD
+- AWS EC2 Deployment
 
 ---
 
@@ -151,7 +222,8 @@ Through this project I gained hands-on experience with:
 
 **Rishikant Kumar**
 
-- GitHub: https://github.com/rishikant0
-- LinkedIn: https:(https://www.linkedin.com/in/rishikant-kumar-aa7bb3314/)
+GitHub: https://github.com/rishikant0
+
+LinkedIn: *(Add your profile here)*
 
 ---
