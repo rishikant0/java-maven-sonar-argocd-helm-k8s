@@ -74,6 +74,19 @@ Jenkins Pipeline
 
 ---
 
+# ☁️ AWS EC2 Infrastructure
+
+<p align="center">
+  <img src="AWS.png" width="100%" alt="AWS EC2 Ubuntu Server">
+</p>
+
+### Infrastructure
+
+- **Cloud Provider:** AWS
+- **Instance:** EC2
+- **Operating System:** Ubuntu 24.04 LTS
+- **Purpose:** Hosts the complete DevOps environment
+
 # ⚙ Jenkins Pipeline
 
 <p align="center">
@@ -224,6 +237,6 @@ kubectl apply -f spring-boot-app-manifests/
 
 GitHub: https://github.com/rishikant0
 
-LinkedIn: *(Add your profile here)*
+LinkedIn:(https://www.linkedin.com/in/rishikant-kumar-aa7bb3314/)
 
 ---
